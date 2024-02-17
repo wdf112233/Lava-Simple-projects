@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Balance Checker</title>
+</head>
+<body>
+    <h1>Wallet Balance Checker</h1>
+    <form method="POST">
+        <label for="rpc_url">RPC URL:</label><br>
+        <input type="text" id="rpc_url" name="rpc_url"><br>
+        <label for="wallet_address">Wallet Address:</label><br>
+        <input type="text" id="wallet_address" name="wallet_address"><br>
+        <input type="submit" value="Check Balance">
+    </form>
+    {% if balance is defined %}
+        <h2>Balance for {{ wallet_address }}:</h2>
+        <p>{{ balance }} ETH</p>
+    {% endif %}
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>
